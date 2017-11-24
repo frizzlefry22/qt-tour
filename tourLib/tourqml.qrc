@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Tour/qmldir</file>
+        <file>Tour/TourManager.qml</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,2 @@
+module Tour
+singleton TourManager 1.0 TourManager.qml
