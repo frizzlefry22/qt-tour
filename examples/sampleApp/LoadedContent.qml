@@ -8,7 +8,7 @@ Item {
     id: control
 
     Button {
-        text: "A loaded label."
+        text: "A loaded button."
 
         Step {
             index: 2

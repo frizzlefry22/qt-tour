@@ -11,14 +11,14 @@ ApplicationWindow {
     title: qsTr("QT Tour")
 
     Button {
-
         text: "Foo Button"
         anchors.left: parent.left
         anchors.top: parent.top
         Step {
-            message: "This foo button has a popup."
+            message: "This foo button has the first Step!."
             popup.x: parent.width
             popup.y: parent.height
+            index : 0
         }
     }
 
