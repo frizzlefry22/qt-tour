@@ -1,5 +1,5 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick 2.7
+import QtQuick.Controls 2.0
 
 import Tour 1.0
 
@@ -20,6 +20,8 @@ Item {
     Popup {
 
         id: stepPopup
+
+        closePolicy: Popup.NoAutoClose
 
         Label {
 

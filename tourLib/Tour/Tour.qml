@@ -1,5 +1,5 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick 2.7
+import QtQuick.Controls 2.0
 
 import Tour 1.0
 
@@ -9,7 +9,9 @@ Item {
 
     objectName: "TOUR_MAIN"
 
-    property alias backgroundVisible: background.visible
+    property alias backdropVisible: backdrop.visible
+
+    property alias backdropColor : backdrop.color
 
     property int currentStepIndex: 0
 
@@ -24,12 +26,12 @@ Item {
     onStart: {
 
         //Resets Step Z if Start is clicked multiple times.
-        if (background.visible) {
+        if (backdrop.visible) {
             TourManager.hideStep()
         }
         tour.currentStepIndex = 0
         TourManager.showStep(tour.currentStepIndex)
-        background.visible = true
+        backdrop.visible = true
     }
 
     onNext: {
@@ -38,7 +40,7 @@ Item {
     }
 
     onStop: {
-        background.visible = false
+        backdrop.visible = false
         TourManager.hideStep()
     }
 
@@ -49,7 +51,7 @@ Item {
 
     Rectangle {
 
-        id: background
+        id: backdrop
 
         visible: false
 
