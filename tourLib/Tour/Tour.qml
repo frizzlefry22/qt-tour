@@ -9,17 +9,17 @@ Item {
 
     objectName: "TOUR_MAIN"
 
-    property alias backgroundVisible : background.visible
+    property alias backgroundVisible: background.visible
 
-    property int currentStepIndex : 0
+    property int currentStepIndex: 0
 
-    signal start ()
+    signal start
 
-    signal stop ()
+    signal stop
 
-    signal next()
+    signal next
 
-    signal previous()
+    signal previous
 
     onStart: {
 
@@ -34,7 +34,7 @@ Item {
 
     onNext: {
         tour.currentStepIndex++
-        TourManager.showStep(tour.currentStepIndex);
+        TourManager.showStep(tour.currentStepIndex)
     }
 
     onStop: {
@@ -49,15 +49,14 @@ Item {
 
     Rectangle {
 
-        id : background
+        id: background
 
         visible: false
 
-        parent : ApplicationWindow.contentItem
+        parent: ApplicationWindow.contentItem
 
         anchors.fill: parent
 
-        color : "Grey"
+        color: "Grey"
     }
-
 }

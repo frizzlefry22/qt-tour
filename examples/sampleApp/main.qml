@@ -13,18 +13,24 @@ ApplicationWindow {
 
     Button {
 
-        text : "fooButton"
+        text : "Foo Button"
 
         anchors.left: parent.left
         anchors.top : parent.top
 
         Step {
 
+
+            message: "This foo button is foo"
+
+            popup.x : parent.width
+            popup.y : parent.height
+
         }
     }
 
     Button {
-        text  :"Foot Button 2"
+        text  :"Foo Button 2"
 
         anchors.right: parent.right
         anchors.top: parent.top

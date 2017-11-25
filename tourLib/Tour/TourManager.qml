@@ -5,5 +5,5 @@ QtObject {
 
     signal showStep(int index)
 
-    signal hideStep()
+    signal hideStep
 }

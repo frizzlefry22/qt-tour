@@ -1,33 +1,57 @@
 import QtQuick 2.9
-
+import QtQuick.Controls 2.2
 
 import Tour 1.0
 
 Item {
 
-    id : step
+    id: step
 
-    property int index : 0
+    property int index: 0
 
-    property real prevZ : 0
+    property string message: ""
+
+    property alias popup: stepPopup
+
+    property real prevZ: 0
 
     objectName: "STEP" + index
+
+    Popup {
+
+        id: stepPopup
+
+        Label {
+
+            text: step.message
+        }
+    }
 
     Connections {
 
         target: TourManager
 
-        onShowStep : {
+        onShowStep: {
+
             if (index === step.index) {
                 step.prevZ = step.parent.z
                 step.parent.z += 1
-            } else{
+                if (message) {
+                    stepPopup.open()
+                }
+            } else {
                 step.parent.z = step.prevZ
+                if (stepPopup.visible) {
+                    stepPopup.close()
+                }
             }
         }
 
-        onHideStep : {
+        onHideStep: {
             step.parent.z = step.prevZ
+            if (stepPopup.visible) {
+                stepPopup.close()
+            }
         }
     }
 }
