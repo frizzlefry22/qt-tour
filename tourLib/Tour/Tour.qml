@@ -22,6 +22,11 @@ Item {
     signal previous()
 
     onStart: {
+
+        //Resets Step Z if Start is clicked multiple times.
+        if (background.visible) {
+            TourManager.hideStep()
+        }
         tour.currentStepIndex = 0
         TourManager.showStep(tour.currentStepIndex)
         background.visible = true
