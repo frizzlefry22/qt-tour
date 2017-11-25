@@ -8,35 +8,44 @@ ApplicationWindow {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
-
+    title: qsTr("QT Tour")
 
     Button {
 
-        text : "Foo Button"
-
+        text: "Foo Button"
         anchors.left: parent.left
-        anchors.top : parent.top
-
+        anchors.top: parent.top
         Step {
-
-
-            message: "This foo button is foo"
-
-            popup.x : parent.width
-            popup.y : parent.height
-
+            message: "This foo button has a popup."
+            popup.x: parent.width
+            popup.y: parent.height
         }
     }
 
-    Button {
-        text  :"Foo Button 2"
-
+    Rectangle {
         anchors.right: parent.right
         anchors.top: parent.top
-
+        height: 250
+        width: 200
+        color: "cyan"
         Step {
+            id: step2
             index: 1
+            customPopup: true
+            popup.parent: ApplicationWindow.overlay
+            popup.x: (popup.parent.width / 2) - (popup.width / 2)
+            popup.y: (popup.parent.height / 2) - (popup.height / 2)
+            popup.contentItem: Column {
+                Label {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "Highlighting a Pane"
+                }
+                Button {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "You can step back in the popup."
+                    onClicked: TourManager.previous()
+                }
+            }
         }
     }
 
@@ -51,37 +60,33 @@ ApplicationWindow {
     }
 
     TourBackdrop {
-
+        //This is needed once
     }
 
     footer: ToolBar {
         ToolButton {
-            text : "Start Tour"
+            text: "Start Tour"
             onClicked: TourManager.start()
             anchors.left: parent.left
-
         }
         ToolButton {
-            id : nextStepButton
-            text : "Next Step"
+            id: nextStepButton
+            text: "Next Step"
             onClicked: TourManager.next()
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
         ToolButton {
-            id : prevButton
-            text : "Prev Step"
+            id: prevButton
+            text: "Prev Step"
             onClicked: TourManager.previous()
             anchors.right: nextStepButton.left
         }
 
-
         ToolButton {
-            text : "Stop Tour"
+            text: "Stop Tour"
             onClicked: TourManager.stop()
             anchors.right: parent.right
         }
     }
-
-
 }

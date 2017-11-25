@@ -5,7 +5,7 @@ import Tour 1.0
 
 /*!
   Step
-  A tour step
+  A tour Step can be added to any QML Item, and it will Raise that item when the Tour is on the Steps index.  Multiple Steps can have the same index.
   */
 Item {
 
@@ -20,6 +20,11 @@ Item {
       This property sets the optional message.
       */
     property string message: ""
+
+    /*!
+      This property represents whether or not a customPopup is provided, if so it will show the popup without the message property being required.
+    */
+    property bool customPopup : false
 
     /*!
       This proeprty exposes the inner popup so it can be customized on a step by step basis.
@@ -55,7 +60,7 @@ Item {
             if (index === step.index) {
                 step.previousZ = step.parent.z
                 step.parent.z += 1
-                if (message) {
+                if (step.message || step.customPopup) {
                     stepPopup.open()
                 }
             } else {
