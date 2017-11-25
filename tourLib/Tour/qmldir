@@ -1,4 +1,4 @@
 module Tour
 singleton TourManager 1.0 TourManager.qml
 Step 1.0 Step.qml
-Tour 1.0 Tour.qml
+TourBackdrop 1.0 TourBackdrop.qml

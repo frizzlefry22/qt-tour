@@ -3,6 +3,6 @@
         <file>Tour/qmldir</file>
         <file>Tour/TourManager.qml</file>
         <file>Tour/Step.qml</file>
-        <file>Tour/Tour.qml</file>
+        <file>Tour/TourBackdrop.qml</file>
     </qresource>
 </RCC>

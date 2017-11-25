@@ -50,36 +50,35 @@ ApplicationWindow {
         }
     }
 
+    TourBackdrop {
 
-    Tour {
-        id : qttour
     }
 
     footer: ToolBar {
         ToolButton {
             text : "Start Tour"
-            onClicked: qttour.start()
+            onClicked: TourManager.start()
             anchors.left: parent.left
 
         }
         ToolButton {
             id : nextStepButton
             text : "Next Step"
-            onClicked: qttour.next()
+            onClicked: TourManager.next()
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
         ToolButton {
             id : prevButton
             text : "Prev Step"
-            onClicked: qttour.previous()
+            onClicked: TourManager.previous()
             anchors.right: nextStepButton.left
         }
 
 
         ToolButton {
             text : "Stop Tour"
-            onClicked: qttour.stop()
+            onClicked: TourManager.stop()
             anchors.right: parent.right
         }
     }

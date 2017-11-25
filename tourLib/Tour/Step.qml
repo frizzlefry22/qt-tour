@@ -3,17 +3,34 @@ import QtQuick.Controls 2.0
 
 import Tour 1.0
 
+/*!
+  Step
+  A tour step
+  */
 Item {
 
     id: step
 
+    /*!
+      This property represents which step in the tour this is.
+      */
     property int index: 0
 
+    /*!
+      This property sets the optional message.
+      */
     property string message: ""
 
+    /*!
+      This proeprty exposes the inner popup so it can be customized on a step by step basis.
+    */
     property alias popup: stepPopup
 
-    property real prevZ: 0
+
+    /*
+      This property represents the previous z value of the Steps parent.  When the step, is no longer active it resets its parent's z value.
+      */
+    property real previousZ: 0
 
     objectName: "STEP" + index
 
@@ -36,13 +53,13 @@ Item {
         onShowStep: {
 
             if (index === step.index) {
-                step.prevZ = step.parent.z
+                step.previousZ = step.parent.z
                 step.parent.z += 1
                 if (message) {
                     stepPopup.open()
                 }
             } else {
-                step.parent.z = step.prevZ
+                step.parent.z = step.previousZ
                 if (stepPopup.visible) {
                     stepPopup.close()
                 }
@@ -50,7 +67,7 @@ Item {
         }
 
         onHideStep: {
-            step.parent.z = step.prevZ
+            step.parent.z = step.previousZ
             if (stepPopup.visible) {
                 stepPopup.close()
             }
