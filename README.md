@@ -3,7 +3,11 @@ A QML Tour module for Qt Quick Programs.
 
 Add Steps to QML Items you wish to focus on in sequential order.  Steps can be added in any file as long as Tour Module is loaded.
 
-[SampleApp](imgs/SampleApp.png)
+![SampleApp](imgs/SampleApp.png)
+
+![Step 1](imgs/Step1.png)
+
+![Step 3](imgs/Step3.png)
 
 Example Use
 
